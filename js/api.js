@@ -22,6 +22,10 @@ export function mostrarCartas(cartas, nombreDiv) {
     cartas.forEach(carta => {
         const imagenCarta = document.createElement("img");
         imagenCarta.src = carta.image;
+        imagenCarta.classList.add("carta");
+        imagenCarta.onclick = function(e) {
+            alert(`${carta.value} of ${carta.suit}`)
+        }
         imagenCarta.alt = `${carta.value} of ${carta.suit}`;
         dImagenesCartas.appendChild(imagenCarta);
     });

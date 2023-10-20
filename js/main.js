@@ -1,18 +1,16 @@
 import { crearMazo, robarCartas, mostrarCartas } from "./api.js";
 
-(async () => {
+(async () => { // Función asíncrona autoejecutable
     try {
         const mazoId = await crearMazo();
-        console.log(`Nuevo mazo creado con el ID: ${mazoId}`);
+        console.log("El mazo fue creado con el ID: ", mazoId);
 
-        const cantidadDeCartas = 5;
-        const cartas = await robarCartas(mazoId, cantidadDeCartas);
+        const cartas = await robarCartas(mazoId, 5);
+        console.log("Las cartas robadas son: ", cartas);
 
-        console.log(`Se robaron ${cantidadDeCartas} cartas del mazo:`);
-        console.log(cartas);
-
-        mostrarCartas(cartas, "imagenesCartasDiv");
+        mostrarCartas(cartas, "imagenesCartasDiv")
     } catch (error) {
-        console.error("Ha ocurrido un error:", error);
+        console.error(error);
     }
+
 })();
